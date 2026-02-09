@@ -35,24 +35,6 @@ export class CarsService {
         return car;
     };
 
-    // PRUEBAS PARA LOS METODOS POST, PATCH Y DELETE (FUNCIONALES PERO NO OPTIMOS?)
-    // addCar(car) {
-    //     this.cars.push(car);
-    // };
-
-    // updateCar(id: number, car) {
-    //     const index = this.cars.findIndex((car) => car.id === id);
-    //     if (index === -1) throw new NotFoundException(`El carro con el ID ${id} no fue encontrado`);
-    //     this.cars[index] = car;
-    // };
-
-    // deletecar(id: number) {
-    //     const index = this.cars.findIndex((car) => car.id === id);
-    //     if (index === -1) throw new NotFoundException(`El carro con el ID ${id} no fue encontrado`);
-    //     this.cars.splice(index, 1);
-    // };
-
-    // Crear el nuevo carro
     create(createCarDto: CreateCarDto) {
         const car: Car = {
             id: uuid(),
