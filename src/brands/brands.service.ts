@@ -8,13 +8,7 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 
 @Injectable()
 export class BrandsService {
-  private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Mazda',
-      createdAt: new Date().getTime()
-    }
-  ];
+  private brands: Brand[] = [];
 
   create(createBrandDto: CreateBrandDto) {
 
@@ -55,15 +49,19 @@ export class BrandsService {
       }
       return brand;
     });
-    
+
     return brandDB;
   }
 
   remove(id: string) {
     this.findOne(id);
-    
+
     this.brands = this.brands.filter(brand => brand.id !== id);
-    
+
     return { ok: true };
   }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
+  };
 }
